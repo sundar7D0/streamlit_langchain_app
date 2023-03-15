@@ -1,8 +1,5 @@
-# GPT-3 Browser Automation Demo
+# Streamlit-LangchainGPT Application as a Thorough Expert (SLATE)
 
-# DEMO
- 
-https://twitter.com/dory111111/status/1609734301658275841
  
 # Requirements
   
