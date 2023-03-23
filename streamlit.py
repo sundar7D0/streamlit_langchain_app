@@ -8,6 +8,13 @@ os.environ["OPENAI_API_KEY"] = "sk-CuNylwZq7ByFGR4oVir8T3BlbkFJqyHmuiLDRrbPtMiwG
 os.environ["SERPAPI_API_KEY"] ="aede6c4480936a7cf7d5441f442e44668d22a08e2365ee67faa16faa2149d048"
 os.environ["PROMPTLAYER_API_KEY"] = "pl_7d59c493651aced115957e213313a942"
 
+import promptlayer
+from promptlayer.langchain.llms import OpenAI
+import os
+from langchain.chat_models import PromptLayerChatOpenAI
+from langchain.schema import HumanMessage
+
+#llm = OpenAI(temperature=0.4, pl_tags=["langchain_test"])
 import pinecone 
 
 # initialize pinecone
