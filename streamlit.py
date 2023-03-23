@@ -4,7 +4,7 @@ import pandas as pd
 #from transformers import pipeline
 
 import os
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 os.environ["SERPAPI_API_KEY"] ="aede6c4480936a7cf7d5441f442e44668d22a08e2365ee67faa16faa2149d048"
 os.environ["PROMPTLAYER_API_KEY"] = "pl_7d59c493651aced115957e213313a942"
 
