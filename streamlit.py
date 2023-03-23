@@ -131,6 +131,10 @@ ALWAYS return a "SOURCE_IDS" as a part of each and every output sentence so that
 Begin!
 ----------------
 """
+index_name="kira-demo4"
+embeddings = OpenAIEmbeddings()
+docsearch = Pinecone.from_existing_index(index_name, embeddings)
+
 messages = [
     SystemMessagePromptTemplate.from_template(system_template),
     HumanMessagePromptTemplate.from_template("{question}")
@@ -141,9 +145,6 @@ def chat_only(chat_bot,input):
     return chat_bot([HumanMessage(content=input)])
 
 def retriever(input):
-    index_name="kira-demo4"
-    embeddings = OpenAIEmbeddings()
-    docsearch = Pinecone.from_existing_index(index_name, embeddings)
     results = docsearch.similarity_search_with_score(input,k=10)
     return results
 
