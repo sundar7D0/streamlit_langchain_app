@@ -141,8 +141,7 @@ def retriever(input):
     embeddings = OpenAIEmbeddings()
     docsearch = Pinecone.from_existing_index(index_name, embeddings)
     results = docsearch.similarity_search_with_score(input,k=10)
-    output  = "\n".join("\nOutput {}: \n 1. Relevancy Score - {} \n 2. Source - {} \n 3. Content - \n {}\n\n\n".format(i,result[1],result[0].metadata,result[0].page_content) for i, result in enumerate(results))
-    return output
+    return results
 
 def retriever_chat(chat_bot,input,prompt):
     results = retriever(input)
@@ -180,7 +179,8 @@ with col2:
                     print(chat_only(chat,question))
             elif agent == "Retriever":
                 with st_capture(output.code):
-                    print(retriever(question))
+                    results = retriever(question)
+                    print("\n".join("\nOutput {}: \n 1. Relevancy Score - {} \n 2. Source - {} \n 3. Content - \n {}\n\n\n".format(i,result[1],result[0].metadata,result[0].page_content) for i, result in enumerate(results)))
             elif agent == "Writer":
                 with st_capture(output.code):
                     print(retriever_chat(chat,question,prompt))
