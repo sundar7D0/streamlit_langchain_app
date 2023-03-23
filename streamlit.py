@@ -145,12 +145,14 @@ def chat_only(chat_bot,input):
     return chat_bot([HumanMessage(content=input)])
 
 def retriever(input):
+    print("Input: ",input)
     results = docsearch.similarity_search_with_score(input,k=10)
     return results
 
 def retriever_chat(chat_bot,input,prompt):
     results = retriever(input)
     context="\n".join('\nSOURCE_ID: {} \n'.format(i)+("{"+result[0].page_content+"}").replace('\n',',\n') for i, result in enumerate(results))
+    print("Context: ",context"
     llm_chain = LLMChain(llm=chat_bot, prompt=prompt)
     return llm_chain.run({"context": context, "question": input})  #, return_only_outputs=True)
 
