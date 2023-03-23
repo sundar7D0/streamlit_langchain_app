@@ -11,6 +11,10 @@ os.environ["SERPAPI_API_KEY"] ="aede6c4480936a7cf7d5441f442e44668d22a08e2365ee67
 os.environ["PROMPTLAYER_API_KEY"] = "pl_7d59c493651aced115957e213313a942"
 
 import promptlayer
+from langchain.chains.qa_with_sources import load_qa_with_sources_chain
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+
 from promptlayer.langchain.llms import OpenAI
 import os
 from langchain.chat_models import PromptLayerChatOpenAI
