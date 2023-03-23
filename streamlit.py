@@ -4,7 +4,9 @@ import pandas as pd
 #from transformers import pipeline
 
 import os
-os.environ["OPENAI_API_KEY"] = "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"
+import streamlit as st
+
+os.environ["OPENAI_API_KEY"] = st.secrets["api"]
 os.environ["SERPAPI_API_KEY"] ="aede6c4480936a7cf7d5441f442e44668d22a08e2365ee67faa16faa2149d048"
 os.environ["PROMPTLAYER_API_KEY"] = "pl_7d59c493651aced115957e213313a942"
 
@@ -69,7 +71,6 @@ from langchain.schema import (
 promptlayer.api_key = "pl_7d59c493651aced115957e213313a942"
 
 
-import streamlit as st
 from langchain import PromptTemplate, OpenAI
 from langchain.chains import PALChain
 from selenium import webdriver
@@ -150,7 +151,7 @@ def retriever_chat(chat_bot,input,prompt):
     return llm_chain.run({"context": context, "question": input})  #, return_only_outputs=True)
 
 def excel_analyst(chat_bot,input):
-    df_agent = create_pandas_dataframe_agent(chat_bot, df, verbose=True)  #,model_name="gpt-3.5-turbo"
+    df_agent = create_pandas_dataframe_agent(chat_bot, , verbose=True)  #,model_name="gpt-3.5-turbo"
     return df_agent.run(input)
 
 st.set_page_config(layout="wide") 
