@@ -1,12 +1,3 @@
-from google.colab import auth
-auth.authenticate_user()
-
-import gspread
-from google.auth import default
-creds, _ = default()
-
-gc = gspread.authorize(creds)
-
 import re
 
 import pandas as pd
@@ -15,9 +6,12 @@ import pandas as pd
 import os
 import streamlit as st
 
-os.environ["OPENAI_API_KEY"] = st.secrets["api"]
-os.environ["SERPAPI_API_KEY"] ="aede6c4480936a7cf7d5441f442e44668d22a08e2365ee67faa16faa2149d048"
-os.environ["PROMPTLAYER_API_KEY"] = "pl_7d59c493651aced115957e213313a942"
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+os.environ["SERPAPI_API_KEY"] = st.secrets["SERPAPI_API_KEY"]
+os.environ["PROMPTLAYER_API_KEY"] = st.secrets["PROMPTLAYER_API_KEY"]
+
+#os.environ["SERPAPI_API_KEY"] ="aede6c4480936a7cf7d5441f442e44668d22a08e2365ee67faa16faa2149d048"
+#os.environ["PROMPTLAYER_API_KEY"] = "pl_7d59c493651aced115957e213313a942"
 
 import promptlayer
 from langchain.chains.qa_with_sources import load_qa_with_sources_chain
