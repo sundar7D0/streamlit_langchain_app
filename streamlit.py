@@ -151,7 +151,7 @@ def retriever_chat(chat_bot,input,prompt):
     return llm_chain.run({"context": context, "question": input})  #, return_only_outputs=True)
 
 def excel_analyst(chat_bot,input):
-    df_agent = create_pandas_dataframe_agent(chat_bot, , verbose=True)  #,model_name="gpt-3.5-turbo"
+    df_agent = create_pandas_dataframe_agent(chat_bot,df , verbose=True)  #,model_name="gpt-3.5-turbo"
     return df_agent.run(input)
 
 st.set_page_config(layout="wide") 
