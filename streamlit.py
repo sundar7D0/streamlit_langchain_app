@@ -174,7 +174,7 @@ with col2:
             #llm=OpenAI(temperature=0,openai_api_key=openai_api_key)
             #chain = PALChain.from_colored_object_prompt(llm, verbose=True)
             output = st.empty()
-            if agent == "chat":
+            if agent == "Chat":
                 with st_capture(output.code):
                     print(chat_only(chat,question))
             elif agent == "Retriever":
