@@ -152,7 +152,7 @@ def retriever(input):
 def retriever_chat(chat_bot,input,prompt):
     results = retriever(input)
     context="\n".join('\nSOURCE_ID: {} \n'.format(i)+("{"+result[0].page_content+"}").replace('\n',',\n') for i, result in enumerate(results))
-    print("Context: ",context"
+    print("Context: ",context")
     llm_chain = LLMChain(llm=chat_bot, prompt=prompt)
     return llm_chain.run({"context": context, "question": input})  #, return_only_outputs=True)
 
