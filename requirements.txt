@@ -5,3 +5,4 @@ selenium
 pinecone-client
 tiktoken
 promptlayer
+BeautifulSoup
