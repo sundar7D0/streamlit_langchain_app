@@ -133,7 +133,7 @@ messages = [
 prompt = ChatPromptTemplate.from_messages(messages)
 
 def chat_only(chat_bot,input):
-    return chat_bot([HumanMessage(content=input)])
+    return chat_bot([HumanMessage(content=input)])['content']
 
 def retriever(input):
     index_name="kira-demo4"
